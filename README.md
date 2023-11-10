@@ -7,9 +7,8 @@ Using postgres and node
 ## Quick setup
 Create conda environment
 ```
-conda create -n PJ-Challenge_compsoftware
-conda activate PJ-Challenge_compsoftware
 conda create -n PJ-Challenge_compsoftware --file env.txt
+conda activate PJ-Challenge_compsoftware
 ```
 
 Init postgres
