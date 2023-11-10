@@ -5,7 +5,26 @@ Initiates conda environment to ensure functioning package versions
 Using postgres and node
 
 ## Quick setup
-Create conda environment
+
+Install miniconda (only if you don't have conda installed already)
+```
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm -rf ~/miniconda3/miniconda.sh
+```
+Initialize conda for bash and zsh
+```
+~/miniconda3/bin/conda init bash
+~/miniconda3/bin/conda init zsh
+```
+Clone this project into home directory and move to the project directory
+```
+git clone git@github.com:santerihukari/Node-postgres-boulder-compsoftware.git ~/pjchallenge
+cd ~/pjchallenge
+```
+
+Create conda environment with the provided list of package versions.
 ```
 conda create -n PJ-Challenge_compsoftware --file env.txt
 conda activate PJ-Challenge_compsoftware
@@ -17,6 +36,7 @@ initdb -D pjchallenge_db
 pg_ctl -D pjchallenge_db -l logfile start
 
 createuser --encrypted --pwprompt pjchallengeuser
+echo "CREATE USER pjchallengeuser WITH PASSWORD 'pjchallengeuser';" | psql -d pjchallenge_db
 ```
 This will ask for a password. Set the password as ```
 pjchallengeuser```
@@ -29,7 +49,7 @@ createdb --owner=pjchallengeuser pjchallenge_db
 Init node
 Initiate node using
 ```
-npm init
+npm init -y
 npm install express
 ```
 
@@ -41,8 +61,10 @@ node server.js
 
 When the competition is over, results have been published and you want to delete the installation from your device, run the following commands to stop postgres and remove the conda environment along with packages.
 ```
-pkill postgres (considering you don't have any other postgres databases running)
-conda remove --name PJ-Challenge_compsoftware --all
+pg_ctl -D pjchallenge_db -l logfile start
+conda deactivate
+conda remove --name PJ-Challenge_compsoftware --all -y
+rm -rf ~/pjchallenge
 ```
 
 Packages that have been used to get the project working are shown below.
