@@ -22,5 +22,5 @@
     "pg-hstore": "^2.3.3",
     "sequelize": "^6.25.7"
   },
-  "description": ""
+  "description": "Initiates conda environment to ensure functioning package versions"
 }

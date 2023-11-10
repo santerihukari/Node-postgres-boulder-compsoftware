@@ -12,9 +12,38 @@ conda activate PJ-Challenge_compsoftware
 conda create -n PJ-Challenge_compsoftware --file env.txt
 ```
 
-When the competition is over, results have been published and you want to delete the installation from your device, run the following command.
+Init postgres
 ```
-conda remove --name ENV_NAME --all
+initdb -D pjchallenge_db
+pg_ctl -D pjchallenge_db -l logfile start
+
+createuser --encrypted --pwprompt pjchallengeuser
+```
+This will ask for a password. Set the password as ```
+pjchallengeuser```
+
+
+```
+createdb --owner=pjchallengeuser pjchallenge_db
+
+```
+Init node
+Initiate node using
+```
+npm init
+npm install express
+```
+
+Then you can run the project using
+```
+node server.js 
+```
+
+
+When the competition is over, results have been published and you want to delete the installation from your device, run the following commands to stop postgres and remove the conda environment along with packages.
+```
+pkill postgres (considering you don't have any other postgres databases running)
+conda remove --name PJ-Challenge_compsoftware --all
 ```
 
 Packages that have been used to get the project working are shown below.

@@ -6,8 +6,8 @@
 
 
 
-const username = "pjchallenge";
-const password = "pjchallenge";
+const username = "pjchallengeuser";
+const password = "pjchallengeuser";
 
 
 
