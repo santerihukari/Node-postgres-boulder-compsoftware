@@ -16,8 +16,8 @@ var bcrypt = require('bcrypt');
 
 
 // create a sequelize instance with our local postgres database information.
-//var sequelize = new Sequelize('postgres://milan@localhost/auth-system');
 var sequelize = new Sequelize('postgres', username, password, {
+    logging: console.log
     dialect: 'postgres',
     pool: {
       max: 15,

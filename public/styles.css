@@ -169,3 +169,18 @@ background-color: rgb(255,204,0);
 
 	
 }
+
+@media (max-width: 400px) {
+    .info {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+@media (min-width: 401px) {
+    .info {
+        width: 50%;
+        max-width: 50%;
+        margin: auto;
+    }
+}
+
