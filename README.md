@@ -36,7 +36,6 @@ initdb -D pjchallenge_db
 pg_ctl -D pjchallenge_db -l logfile start
 
 createuser --encrypted --pwprompt pjchallengeuser
-echo "CREATE USER pjchallengeuser WITH PASSWORD 'pjchallengeuser';" | psql -d pjchallenge_db
 ```
 This will ask for a password. Set the password as ```
 pjchallengeuser```
@@ -61,7 +60,7 @@ node server.js
 
 When the competition is over, results have been published and you want to delete the installation from your device, run the following commands to stop postgres and remove the conda environment along with packages.
 ```
-pg_ctl -D pjchallenge_db -l logfile start
+pg_ctl -D pjchallenge_db -l logfile stop
 conda deactivate
 conda remove --name PJ-Challenge_compsoftware --all -y
 rm -rf ~/pjchallenge
