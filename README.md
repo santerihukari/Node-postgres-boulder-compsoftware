@@ -32,7 +32,7 @@ Init postgres
 initdb -D ~/pjchallenge/postgres
 pg_ctl -D ~/pjchallenge/postgres -l logfile start
 
-createuser --encrypted --pwprompt pjchallengeuserrou
+createuser --encrypted --pwprompt pjchallengeuser
 ```
 This will ask for a password. Set the password as ```
 pjchallengeuser```
@@ -42,6 +42,14 @@ pjchallengeuser```
 createdb --owner=pjchallengeuser ~/pjchallenge/postgres
 
 ```
+## Add boulders to the database
+
+Add the boulder information (route id, color) in add_boulders.sql and run the following command on the command line.
+```
+psql -U pjchallengeuser -d postgres -a -f add_boulders.sql
+```
+
+
 ### Init node
 Initiate node using
 ```
@@ -52,12 +60,6 @@ npm install express
 Then you can run the project using
 ```
 node server.js 
-```
-## Add boulders to the database
-
-Add the boulder information (route id, color) in add_boulders.sql and run the following command on the command line.
-```
-psql -U pjchallengeuser -d postgres -a -f add_boulders.sql
 ```
 
 
