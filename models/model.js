@@ -8,7 +8,7 @@
 
 const username = "pjchallengeuser";
 const password = "pjchallengeuser";
-const db_name = "pjchallenge_db";
+const db_name = "postgres";
 
 
 var Sequelize = require('sequelize');

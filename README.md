@@ -29,8 +29,8 @@ conda activate PJ-Challenge_compsoftware
 
 Init postgres
 ```
-initdb -D ~/pjchallenge/pjchallenge_db
-pg_ctl -D ~/pjchallenge/pjchallenge_db -l logfile start
+initdb -D ~/pjchallenge/postgres
+pg_ctl -D ~/pjchallenge/postgres -l logfile start
 
 createuser --encrypted --pwprompt pjchallengeuser
 ```
@@ -39,7 +39,7 @@ pjchallengeuser```
 
 
 ```
-createdb --owner=pjchallengeuser ~/pjchallenge/pjchallenge_db
+createdb --owner=pjchallengeuser ~/pjchallenge/postgres
 
 ```
 ### Init node
@@ -57,7 +57,7 @@ node server.js
 
 When the competition is over, results have been published and you want to delete the installation from your device, run the following commands to stop postgres and remove the conda environment along with packages.
 ```
-pg_ctl -D ~/pjchallenge/pjchallenge_db stop
+pg_ctl -D ~/pjchallenge/postgres stop
 conda deactivate
 conda remove --name PJ-Challenge_compsoftware --all -y
 rm -rf ~/pjchallenge
