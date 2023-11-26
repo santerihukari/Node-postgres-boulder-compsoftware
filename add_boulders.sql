@@ -1,4 +1,4 @@
-CREATE TABLE boulders (number INT UNIQUE NOT NULL, color VARCHAR(20) NOT NULL);
+CREATE TABLE boulders (number INT UNIQUE NOT NULL, color VARCHAR(50) NOT NULL);
 INSERT INTO boulders (number, color) VALUES
 (1, 'blue'),
 (2, 'bright green'),
